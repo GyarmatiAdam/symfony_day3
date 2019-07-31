@@ -7,7 +7,16 @@
         <a class="nav-link" href="/">Home</a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="/users">Users</a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="/insert">Insert</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/update/4">Update</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/delete/4">Delete</a>
       </li>
 
     </ul>

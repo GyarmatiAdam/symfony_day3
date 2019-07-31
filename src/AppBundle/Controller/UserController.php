@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 class UserController extends Controller
 {
     /**
-    * @Route("/insertUser")
+    * @Route("/insert")
     */
     public function insertAction()
     {
@@ -30,7 +30,7 @@ class UserController extends Controller
     
     
     /**
-    * @Route("/insert")
+    * @Route("/users")
     */
     public function displayAction()
     {
@@ -41,19 +41,38 @@ class UserController extends Controller
     }
 
     /**
-    * @Route("/example/update/{id}")
+    * @Route("/update/{id}")
     */
     public function updateAction($id)
     {
     $doct = $this->getDoctrine()->getManager();
-    $stud = $doct->getRepository('AppBundle:Example_class')->find($id);
-    if (!$stud) {
+    $user = $doct->getRepository('AppBundle:Users')->find($id);
+    if (!$user) {
     throw $this->createNotFoundException(
-    'No student found for id '.$id
+    'No user found for id '.$id
     );
     }
-    $stud->setAddress('Herklotzgasse 21, Wien');
+    $user->setFirstName('John');
+    $user->setLastName('Doe');
+    $user->setUsername('someone');
     $doct->flush();
     return new Response('Changes updated!');
+    }
+
+    /**
+    * @Route("/delete/{id}")
+    */
+    public function deleteAction($id)
+    {
+    $doct = $this->getDoctrine()->getManager();
+    $user = $doct->getRepository('AppBundle:Users')->find($id);
+    if (!$user) {
+    throw $this->createNotFoundException(
+    'No userent found for id '.$id
+    );
+    }
+    $doct->remove($user);
+    $doct->flush();
+    return new Response('Record deleted!');
     }
 }

@@ -16,11 +16,20 @@ class PagesController extends Controller
         return $this->render('base.html.twig');
     }
 
-    /**
-     * @Route("/insert", name="insertpage")
-     */
-    public function insertAction(Request $request)
-    {
-        return $this->render('pages/insert.html.twig');
-    }
+    // /**
+    //  * @Route("/insert", name="insertpage")
+    //  */
+    // public function insertAction(Request $request)
+    // {
+    //     return $this->render('pages/insert.html.twig');
+    // }
+
+    // /**
+    //  * @Route("/update", name="updatepage")
+    //  */
+    // public function updateAction(Request $request)
+    // {
+    //     return $this->render('pages/update.html.twig');
+    // }
+    
 }
